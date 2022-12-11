@@ -43,7 +43,7 @@ shinyServer(function(input, output, session){
   
   #################################### error checking ######################################
   output$files_sanity_checking <- reactive({
-    error_catghing <- function(){
+    error_catching <- function(){
       mat_n <- grep('^matrix.mtx', input$mydata[3:6])
       bar_n <- grep('^barcodes.tsv', input$mydata[3:6])
       gene_n <- grep('^genes.tsv', input$mydata[3:6])
@@ -54,7 +54,7 @@ shinyServer(function(input, output, session){
         TRUE
       }
     }
-    error_catghing()
+    error_catching()
   })
   outputOptions(output, 'files_sanity_checking', suspendWhenHidden=FALSE)
   
