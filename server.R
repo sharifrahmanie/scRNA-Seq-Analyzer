@@ -39,7 +39,7 @@ shinyServer(function(input, output, session){
   darkmode_toggle(inputid = 'togglemode')
   #####################################################
   
-  ####################################### single cell ######################################
+
   
   #################################### error checking ######################################
   output$files_sanity_checking <- reactive({
@@ -61,13 +61,6 @@ shinyServer(function(input, output, session){
   reading_10x <- reactive({
       files <- input$fileIn
       files <- files[order(files[,1]), ]
-      # path <- files$datapath[1]
-      # path <- str_extract(path, "/tmp.*(?=[0-2]{1}.)")
-      # setwd(path)
-      # file.rename(list.files(pattern="0.gz|0.tsv"), "barcodes.tsv")
-      # file.rename(list.files(pattern="1.gz|1.tsv"), "genes.tsv")
-      # file.rename(list.files(pattern="2.gz|2.mtx"), "matrix.tsv")
-      # files$datapath[1]
       ReadMtx_enhanced <- function(
         mtx,
         cells,
@@ -457,14 +450,8 @@ shinyServer(function(input, output, session){
       )
     }
   })
-   
-   # output$head_normalized_data <- renderPrint({
-   #   if(input$normalizationaction){
-   #     print('Normalization has successfully completed.')
-   #   }
-   # })
-   
-#   ############################## Feature selection ###############################
+
+   ############################## Feature selection ###############################
   feature_selection <- reactive({
     if(input$featureselectionaction){
       req(normalized_data())
