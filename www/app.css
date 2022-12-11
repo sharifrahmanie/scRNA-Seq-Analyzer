@@ -35,7 +35,7 @@
   background-image: url("sidebar.jpg");
   background-repeat: inherit;
   background-size: 260px;
-  height: 750px;
+  height: auto;
   background-position: -63px;
   background-color: black;
   padding-left: -5px;
